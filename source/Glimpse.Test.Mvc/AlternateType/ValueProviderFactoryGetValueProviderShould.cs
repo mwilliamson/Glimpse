@@ -30,7 +30,7 @@ namespace Glimpse.Test.Mvc.AlternateType
             context.MessageBroker.Verify(mb => mb.Publish(It.IsAny<object>()), Times.Never());
         }
 
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void ProceedWithTimerWithNullReturnValue(ValueProviderFactory.GetValueProvider sut, IAlternateMethodContext context, ControllerContext arg1)
         {
             context.Setup(c => c.Arguments).Returns(new object[] { arg1 });
@@ -42,7 +42,7 @@ namespace Glimpse.Test.Mvc.AlternateType
             context.Verify(c => c.ReturnValue);            
         }
 
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void ProceedWithTimerWithIUnvalidatedValueProviderReturnValue([Frozen] IProxyFactory proxyFactory, ValueProviderFactory.GetValueProvider sut, IAlternateMethodContext context, ControllerContext arg1, IUnvalidatedValueProvider returnValue)
         {
             context.Setup(c => c.Arguments).Returns(new object[] { arg1 });
@@ -57,7 +57,7 @@ namespace Glimpse.Test.Mvc.AlternateType
             context.VerifySet(c => c.ReturnValue = It.IsAny<IUnvalidatedValueProvider>());
         }
 
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void ProceedWithTimerWithIValueProviderReturnValue([Frozen] IProxyFactory proxyFactory, ValueProviderFactory.GetValueProvider sut, IAlternateMethodContext context, ControllerContext arg1, IValueProvider returnValue)
         {
             context.Setup(c => c.Arguments).Returns(new object[] { arg1 });

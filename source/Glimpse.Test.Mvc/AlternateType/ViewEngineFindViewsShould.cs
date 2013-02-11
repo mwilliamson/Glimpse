@@ -54,7 +54,7 @@ namespace Glimpse.Test.Mvc.AlternateType
             context.Verify(c => c.Proceed());
         }
 
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void PublishMessagesIfRuntimePolicyIsOnAndViewNotFound(ViewEngine.FindViews sut, IAlternateMethodContext context, ControllerContext controllerContext)
         {
             context.Setup(c => c.Arguments).Returns(GetArguments(controllerContext));
@@ -66,7 +66,7 @@ namespace Glimpse.Test.Mvc.AlternateType
             context.MessageBroker.Verify(b => b.Publish(It.IsAny<ViewEngine.FindViews.Message>())); 
         }
 
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void PublishMessagesIfRuntimePolicyIsOnAndViewIsFound([Frozen] IProxyFactory proxyFactory, ViewEngine.FindViews sut, IAlternateMethodContext context, IView view, IViewEngine engine, ControllerContext controllerContext)
         {
             context.Setup(c => c.Arguments).Returns(GetArguments(controllerContext));

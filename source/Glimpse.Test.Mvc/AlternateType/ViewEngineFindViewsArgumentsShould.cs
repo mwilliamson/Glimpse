@@ -8,7 +8,7 @@ namespace Glimpse.Test.Mvc.AlternateType
 {
     public class ViewEngineFindViewsArgumentsShould
     {
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void ConstructForPartial(ControllerContext controllerContext, string viewName, bool useCache)
         {
             var sut = new ViewEngine.FindViews.Arguments(true, controllerContext, viewName, useCache, false); // last false is a lie to prove the test
@@ -19,7 +19,7 @@ namespace Glimpse.Test.Mvc.AlternateType
             Assert.Equal(string.Empty, sut.MasterName);
         }
 
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void ConstructForNonPartial(ControllerContext controllerContext, string viewName, bool useCache)
         {
             var sut = new ViewEngine.FindViews.Arguments(false, controllerContext, viewName, "MasterName", useCache);

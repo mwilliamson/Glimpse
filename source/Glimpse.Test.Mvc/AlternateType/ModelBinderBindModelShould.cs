@@ -28,7 +28,7 @@ namespace Glimpse.Test.Mvc.AlternateType
             context.MessageBroker.Verify(mb => mb.Publish(It.IsAny<object>()), Times.Never());
         }
 
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void ProceedPublishMessageWithRuntimePolicyOn(ModelBinder.BindModel sut, IAlternateMethodContext context, ControllerContext arg1, ModelBindingContext arg2)
         {
             context.Setup(c => c.Arguments).Returns(new object[] { arg1, arg2 });

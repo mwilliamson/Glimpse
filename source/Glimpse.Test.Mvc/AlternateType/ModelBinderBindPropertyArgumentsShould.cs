@@ -10,7 +10,7 @@ namespace Glimpse.Test.Mvc.AlternateType
 {
     public class ModelBinderBindPropertyArgumentsShould
     {
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void Construct(ControllerContext controllerContext, ModelBindingContext modelBindingContext, PropertyDescriptor propertyDescriptor)
         {
             var sut = new ModelBinder.BindProperty.Arguments(controllerContext, modelBindingContext, propertyDescriptor);
@@ -26,13 +26,13 @@ namespace Glimpse.Test.Mvc.AlternateType
             Assert.Throws<InvalidCastException>(() => new ModelBinder.BindProperty.Arguments(controllerContext, modelBindingContext, propertyDescriptor));
         }
 
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void ThrowWithInvalidModelBindingContext(ControllerContext controllerContext, object modelBindingContext, PropertyDescriptor propertyDescriptor)
         {
             Assert.Throws<InvalidCastException>(() => new ModelBinder.BindProperty.Arguments(controllerContext, modelBindingContext, propertyDescriptor));
         }
 
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void ThrowWithInvalidPropertyDescriptor(ControllerContext controllerContext, ModelBindingContext modelBindingContext, object propertyDescriptor)
         {
             Assert.Throws<InvalidCastException>(() => new ModelBinder.BindProperty.Arguments(controllerContext, modelBindingContext, propertyDescriptor));

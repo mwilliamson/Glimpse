@@ -29,7 +29,7 @@ namespace Glimpse.Test.Mvc.AlternateType
             context.MessageBroker.Verify(mb => mb.Publish(It.IsAny<object>()), Times.Never());
         }
 
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void ProceedAndPublishMessageWithRuntimePolicyOn(ModelBinder.BindProperty sut, IAlternateMethodContext context, ControllerContext controllerContext, ModelBindingContext modelBindingContext, PropertyDescriptor propertyDescriptor)
         {
             context.Setup(c => c.Arguments).Returns(new object[] { controllerContext, modelBindingContext, propertyDescriptor });

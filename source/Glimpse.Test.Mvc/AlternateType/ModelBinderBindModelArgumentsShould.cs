@@ -9,7 +9,7 @@ namespace Glimpse.Test.Mvc.AlternateType
 {
     public class ModelBinderBindModelArgumentsShould
     {
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void Construct(ControllerContext controllerContext, ModelBindingContext modelBindingContext)
         {
             var sut = new ModelBinder.BindModel.Arguments(controllerContext, modelBindingContext);
@@ -24,7 +24,7 @@ namespace Glimpse.Test.Mvc.AlternateType
             Assert.Throws<InvalidCastException>(() => new ModelBinder.BindModel.Arguments(controllerContext, modelBindingContext));
         }
 
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void ThrowWithInvalidModelBindingContext(ControllerContext controllerContext, object modelBindingContext)
         {
             Assert.Throws<InvalidCastException>(() => new ModelBinder.BindModel.Arguments(controllerContext, modelBindingContext));

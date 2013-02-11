@@ -10,7 +10,7 @@ namespace Glimpse.Test.Mvc.AlternateType
 {
     public class ActionInvokerInvokeActionMethodArgumentsShould
     {
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void ConstructForNonAsync(ControllerContext expectedControllerContext, ActionDescriptor expectedActionDescriptor, IDictionary<string, object> expectedParameters)
         {
             var sut = new ActionInvoker.InvokeActionMethod.Arguments(expectedControllerContext, expectedActionDescriptor, expectedParameters);
@@ -23,7 +23,7 @@ namespace Glimpse.Test.Mvc.AlternateType
             Assert.Null(sut.State);
         }
 
-        [Theory(Skip = "MVC Migration Problem"), AutoMock]
+        [Theory, AutoMock]
         public void ConstructForAsync(ControllerContext expectedControllerContext, ActionDescriptor expectedActionDescriptor, IDictionary<string, object> expectedParameters, AsyncCallback expectedCallback, string expectedState)
         {
             var arguments = new ActionInvoker.InvokeActionMethod.Arguments(expectedControllerContext, expectedActionDescriptor, expectedParameters, expectedCallback, expectedState);
