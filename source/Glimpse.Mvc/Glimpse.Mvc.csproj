@@ -5,13 +5,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0A68B072-7918-45AC-BB78-F05789D0BF44}</ProjectGuid>
+    <ProjectGuid>{61E26216-4912-4EB2-914B-4050D5547CBF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Glimpse.Mvc</RootNamespace>
-    <AssemblyName>Glimpse.Mvc3</AssemblyName>
+    <AssemblyName>Glimpse.Mvc4</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
@@ -20,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;MVC3</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -28,7 +29,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;MVC3</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -38,46 +39,93 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.Helpers.dll</HintPath>
+    <Reference Include="System.Web" /> 
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.3.0.20105.1\lib\net40\System.Web.Mvc.dll</HintPath>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.Razor.1.0.20105.408\lib\net40\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Routing" />
-    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Routing" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference> 
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Glimpse.Mvc\**\*.cs" Exclude="..\Glimpse.Mvc\Properties\AssemblyInfo.cs;">
-      <Link />
-    </Compile>
+    <Compile Include="AlternateType\ActionFilter.cs" />
+    <Compile Include="AlternateType\ActionInvoker.cs" />
+    <Compile Include="AlternateType\ActionInvokerStateMixin.cs" />
+    <Compile Include="AlternateType\AsyncActionInvoker.cs" />
+    <Compile Include="AlternateType\AuthorizationFilter.cs" />
+    <Compile Include="AlternateType\ControllerFactory.cs" />
+    <Compile Include="AlternateType\DependencyResolver.cs" />
+    <Compile Include="AlternateType\ExceptionFilter.cs" />
+    <Compile Include="AlternateType\ModelBinder.cs" />
+    <Compile Include="AlternateType\ModelBinderProvider.cs" />
+    <Compile Include="AlternateType\ResultFilter.cs" />
+    <Compile Include="AlternateType\ValueProvider.cs" />
+    <Compile Include="AlternateType\ValueProviderFactory.cs" />
+    <Compile Include="AlternateType\View.cs" />
+    <Compile Include="AlternateType\ViewCorrelationMixin.cs" />
+    <Compile Include="AlternateType\ViewEngine.cs" />
+    <Compile Include="Html\HtmlHelperExtension.cs" />
+    <Compile Include="Message\FilterBounds.cs" />
+    <Compile Include="Message\FilterCategory.cs" />
+    <Compile Include="Message\IActionMessage.cs" />
+    <Compile Include="Message\IBoundedFilterMessage.cs" />
+    <Compile Include="Message\ICanceledFilterMessage.cs" />
+    <Compile Include="Message\IChildActionMessage.cs" />
+    <Compile Include="Message\IExceptionFilterMessage.cs" />
+    <Compile Include="Message\IExecutionMessage.cs" />
+    <Compile Include="Message\IFilterMessage.cs" />
+    <Compile Include="Message\IInvokeActionResultMessage.cs" />
+    <Compile Include="Message\MvcTimelineExtension.cs" />
+    <Compile Include="Message\Timeline.cs" />
+    <Compile Include="Message\TimelineCategoryController.cs" />
+    <Compile Include="Message\TimelineCategoryFilter.cs" />
+    <Compile Include="Message\TimelineCategoryView.cs" />
+    <Compile Include="Model\DefaultValueModel.cs" />
+    <Compile Include="Model\ExecutionModel.cs" />
+    <Compile Include="Model\MetadataContentModel.cs" />
+    <Compile Include="Model\MetadataItemModel.cs" />
+    <Compile Include="Model\MetadataPropertyItemModel.cs" />
+    <Compile Include="Model\ViewModelSummary.cs" />
+    <Compile Include="Model\ViewsModel.cs" />
+    <Compile Include="PipelineInspector\DependencyInjectionInspector.cs" />
+    <Compile Include="PipelineInspector\ExecutionInspector.cs" />
+    <Compile Include="PipelineInspector\ModelBinderInspector.cs" />
+    <Compile Include="PipelineInspector\ViewEngineInspector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="..\Glimpse.Mvc\Resources.resx" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SerializationConverter\ListOfExecutionModelConverter.cs" />
+    <Compile Include="SerializationConverter\ListOfMetadataItemModelConverter.cs" />
+    <Compile Include="SerializationConverter\ListOfViewsModelConverter.cs" />
+    <Compile Include="SerializationConverter\UrlParameterConverter.cs" />
+    <Compile Include="Tab\Execution.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tab\Metadata.cs" />
+    <Compile Include="Tab\ModelBinding.cs" />
+    <Compile Include="Tab\Views.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Glimpse.AspNet\Glimpse.AspNet.csproj">
@@ -90,9 +138,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="NuSpec\Glimpse.Mvc3.nuspec">
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </None>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -36,6 +36,10 @@ task clean {
     "   Glimpse.AspNet.Net35"
     Delete-Directory "$source_dir\Glimpse.AspNet.Net35\bin"
     Delete-Directory "$source_dir\Glimpse.AspNet.Net35\obj"
+    
+    "   Glimpse.Mvc"
+    Delete-Directory "$source_dir\Glimpse.Mvc\bin"
+    Delete-Directory "$source_dir\Glimpse.Mvc\obj"
 
     "   Glimpse.Mvc2"
     Delete-Directory "$source_dir\Glimpse.Mvc2\bin"
@@ -44,6 +48,10 @@ task clean {
     "   Glimpse.Mvc3"
     Delete-Directory "$source_dir\Glimpse.Mvc3\bin"
     Delete-Directory "$source_dir\Glimpse.Mvc3\obj"
+    
+    "   Glimpse.Mvc4"
+    Delete-Directory "$source_dir\Glimpse.Mvc4\bin"
+    Delete-Directory "$source_dir\Glimpse.Mvc4\obj"
        
     "   Glimpse.Mvc3.MusicStore.Sample"
     Delete-Directory "$source_dir\Glimpse.Mvc3.MusicStore.Sample\bin"
@@ -59,8 +67,8 @@ task clean {
     Delete-Directory "$source_dir\Glimpse.Test.Core.Net35\bin"
     Delete-Directory "$source_dir\Glimpse.Test.Core.net35\obj"
     
-    Delete-Directory "$source_dir\Glimpse.Test.Mvc3\bin"
-    Delete-Directory "$source_dir\Glimpse.Test.Mvc3\obj"
+    Delete-Directory "$source_dir\Glimpse.Test.Mvc\bin"
+    Delete-Directory "$source_dir\Glimpse.Test.Mvc\obj"
 }
 
 task compile -depends clean {
@@ -101,6 +109,9 @@ task merge -depends test {
     "   Glimpse.Mvc3"
     copy $source_dir\Glimpse.Mvc3\bin\Release\Glimpse.Mvc3.* $source_dir\Glimpse.Mvc3\nuspec\lib\net40\
     
+    "   Glimpse.Mvc4"
+    copy $source_dir\Glimpse.Mvc4\bin\Release\Glimpse.Mvc4.* $source_dir\Glimpse.Mvc4\nuspec\lib\net40\
+    
 }
 
 task pack -depends merge {
@@ -124,6 +135,10 @@ task pack -depends merge {
     $version = Get-AssemblyInformationalVersion $source_dir\Glimpse.Mvc3\Properties\AssemblyInfo.cs | Update-AssemblyInformationalVersion
     exec { & .\nuget.exe pack $source_dir\Glimpse.Mvc3\NuSpec\Glimpse.Mvc3.nuspec -OutputDirectory $build_dir\local -Symbols -Version $version }
     
+    "   Glimpse.Mvc4.nuspec"
+    $version = Get-AssemblyInformationalVersion $source_dir\Glimpse.Mvc4\Properties\AssemblyInfo.cs | Update-AssemblyInformationalVersion
+    exec { & .\nuget.exe pack $source_dir\Glimpse.Mvc4\NuSpec\Glimpse.Mvc4.nuspec -OutputDirectory $build_dir\local -Symbols -Version $version }
+    
     "   Glimpse.zip"
     New-Item $build_dir\local\zip\Core\net40 -Type directory -Force > $null
     New-Item $build_dir\local\zip\Core\net35 -Type directory -Force > $null
@@ -131,6 +146,7 @@ task pack -depends merge {
     New-Item $build_dir\local\zip\AspNet\net35 -Type directory -Force > $null
     New-Item $build_dir\local\zip\MVC2\net35 -Type directory -Force > $null
     New-Item $build_dir\local\zip\MVC3\net40 -Type directory -Force > $null
+    New-Item $build_dir\local\zip\MVC4\net40 -Type directory -Force > $null
 
     copy $base_dir\license.txt $build_dir\local\zip
         
@@ -143,6 +159,7 @@ task pack -depends merge {
     
     copy $source_dir\Glimpse.Mvc2\nuspec\lib\net35\Glimpse.Mvc2.* $build_dir\local\zip\Mvc2\net35
     copy $source_dir\Glimpse.Mvc3\nuspec\lib\net40\Glimpse.Mvc3.* $build_dir\local\zip\Mvc3\net40
+    copy $source_dir\Glimpse.Mvc4\nuspec\lib\net40\Glimpse.Mvc4.* $build_dir\local\zip\Mvc4\net40
         
     #TODO: Add help .CHM file
     
@@ -150,7 +167,7 @@ task pack -depends merge {
     Delete-Directory $build_dir\local\zip
 }
 
-task test -depends compile{
+task test -depends compile {
     "Testing"
     
     New-Item $build_dir\local\artifacts -Type directory -Force > $null
@@ -222,8 +239,8 @@ task integrate {
     "`nGlimpse must be manually installed while waiting for http://nuget.codeplex.com/workitem/2730"
     #cd $base_dir\.NuGet
     
-    #nuget update -source "c:\glimpse\builds\local" -Id Glimpse.MVC3;Glimpse.AspNet;Glimpse -Verbose "c:\glimpse\source\Glimpse.Test.Integration.Site\packages.config"
-    #exec { & .\nuget.exe update -source $build_dir\local -id "Glimpse.MVC3;Glimpse.AspNet;Glimpse" -Verbose "$source_dir\Glimpse.Test.Integration.Site\packages.config" }
+    #nuget update -source "c:\glimpse\builds\local" -Id Glimpse.MVC;Glimpse.AspNet;Glimpse -Verbose "c:\glimpse\source\Glimpse.Test.Integration.Site\packages.config"
+    #exec { & .\nuget.exe update -source $build_dir\local -id "Glimpse.MVC;Glimpse.AspNet;Glimpse" -Verbose "$source_dir\Glimpse.Test.Integration.Site\packages.config" }
     
     "`nIIS must be set up with Administrative privledges. Run: "
     "C:\Windows\System32\inetsrv\appcmd.exe add site /name:""Glimpse Integration Test Site"" /bindings:""http/*:1155:"" /physicalPath:""C:\Glimpse\source\Glimpse.Test.Integration.Site"

@@ -57,7 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\Glimpse.Mvc3\Resources.resx" />
+    <EmbeddedResource Include="..\Glimpse.Mvc\Resources.resx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Glimpse.AspNet.Net35\Glimpse.AspNet.Net35.csproj">
